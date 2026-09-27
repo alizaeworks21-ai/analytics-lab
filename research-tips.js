@@ -54,7 +54,7 @@ function alResearchRail(){
   const tips=AL_RESEARCH_TIPS[m.track]||AL_RESEARCH_TIPS.analytical;
   const aside=document.createElement('aside');
   aside.className='al-research-rail';
-  aside.innerHTML=`<div class="al-research-head"><div class="miniLabel">ACADEMIC LENS</div><strong>Useful outside perspective</strong><p>Short reminders drawn from official Harvard Business School and Oxford Saïd curriculum pages.</p></div>${tips.map(t=>`<article class="al-research-tip"><span class="al-source">${t.source}</span><h4>${t.title}</h4><p>${t.body}</p><a href="${t.url}" target="_blank" rel="noopener noreferrer">View source ↗</a></article>`).join('')}<div class="al-gap-card"><div class="miniLabel">CURRICULUM CHECK</div><strong>What top business curricula reinforce</strong><p>These are the extra ideas worth keeping in your head while you work through the 45 modules.</p>${AL_CURRICULUM_INSIGHTS.map(x=>`<div class="al-curriculum-insight"><b>${x.title}</b><p>${x.body}</p><span>${x.source}</span></div>`).join('')}</div>`;
+  aside.innerHTML=`${tips.map(t=>`<article class="al-research-tip"><span class="al-source">${t.source}</span><h4>${t.title}</h4><p>${t.body}</p><a href="${t.url}" target="_blank" rel="noopener noreferrer">View source ↗</a></article>`).join('')}<div class="al-gap-card"><div class="miniLabel">CURRICULUM CHECK</div><strong>What top business curricula reinforce</strong><p>These are the extra ideas worth keeping in your head while you work through the 45 modules.</p>${AL_CURRICULUM_INSIGHTS.map(x=>`<div class="al-curriculum-insight"><b>${x.title}</b><p>${x.body}</p><span>${x.source}</span></div>`).join('')}</div>`;
   page.appendChild(aside);
 }
 const AL_BASE_LESSON=lesson;
