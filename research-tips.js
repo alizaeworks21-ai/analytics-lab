@@ -34,6 +34,16 @@ const AL_RESEARCH_TIPS={
     {source:'Harvard Business School',title:'Expect your view to change under challenge',body:'In HBS case discussions, students compare perspectives and may change their thinking. Practise stating a view clearly while also naming what evidence would make you revise it.',url:'https://www.hbs.edu/mba/academic-experience/the-case-method'}
   ]
 };
+
+const AL_CURRICULUM_INSIGHTS=[
+  {title:'Decision-making with incomplete information',body:'Do not wait for perfect certainty. Strong business reasoning means making a defensible decision with the evidence available, while stating assumptions and risks.',source:'Harvard Business School case method'},
+  {title:'Statistics and uncertainty matter',body:'Go beyond arithmetic. Sampling, bias, variation, confidence, hypothesis testing, and error trade-offs help you judge whether a signal is trustworthy enough to act on.',source:'Harvard Business School Online — Business Analytics'},
+  {title:'Finance fluency strengthens strategy',body:'You should be comfortable connecting product and strategy choices to revenue, margin, cash flow, investment, ROI, and basic value creation. You do not need to become an accountant.',source:'Oxford Saïd MBA core + HBS Finance'},
+  {title:'Negotiation deserves its own practice',body:'Senior roles often require influence without authority. Practise interests, alternatives, trade-offs, stakeholder incentives, and value creation—not just communication style.',source:'Harvard Business School — Negotiation'},
+  {title:'Reflection is part of learning',body:'After difficult cases, ask what assumption changed, what evidence mattered most, where your reasoning was weak, and what you would do differently next time.',source:'Harvard Business School case method'},
+  {title:'Strategy should integrate multiple lenses',body:'Customer value, competitive dynamics, economics, capabilities, and operating constraints should come together in one coherent choice rather than separate framework boxes.',source:'Harvard Business School Strategy + Oxford Saïd Strategy'}
+];
+
 function alResearchRail(){
   const m=modules[state.module];
   if(!m)return;
@@ -44,7 +54,7 @@ function alResearchRail(){
   const tips=AL_RESEARCH_TIPS[m.track]||AL_RESEARCH_TIPS.analytical;
   const aside=document.createElement('aside');
   aside.className='al-research-rail';
-  aside.innerHTML=`<div class="al-research-head"><div class="miniLabel">ACADEMIC LENS</div><strong>Useful outside perspective</strong><p>Short reminders drawn from official Harvard Business School and Oxford Saïd curriculum pages.</p></div>${tips.map(t=>`<article class="al-research-tip"><span class="al-source">${t.source}</span><h4>${t.title}</h4><p>${t.body}</p><a href="${t.url}" target="_blank" rel="noopener noreferrer">View source ↗</a></article>`).join('')}<div class="al-gap-card"><div class="miniLabel">CURRICULUM CHECK</div><strong>Your structure is strong for interview training.</strong><p>The clearest academic additions to keep in mind are statistical uncertainty, financial/accounting fluency, negotiation, and explicit reflection after cases. These are complementary—not reasons to turn this into a full MBA.</p></div>`;
+  aside.innerHTML=`<div class="al-research-head"><div class="miniLabel">ACADEMIC LENS</div><strong>Useful outside perspective</strong><p>Short reminders drawn from official Harvard Business School and Oxford Saïd curriculum pages.</p></div>${tips.map(t=>`<article class="al-research-tip"><span class="al-source">${t.source}</span><h4>${t.title}</h4><p>${t.body}</p><a href="${t.url}" target="_blank" rel="noopener noreferrer">View source ↗</a></article>`).join('')}<div class="al-gap-card"><div class="miniLabel">CURRICULUM CHECK</div><strong>What top business curricula reinforce</strong><p>These are the extra ideas worth keeping in your head while you work through the 45 modules.</p>${AL_CURRICULUM_INSIGHTS.map(x=>`<div class="al-curriculum-insight"><b>${x.title}</b><p>${x.body}</p><span>${x.source}</span></div>`).join('')}</div>`;
   page.appendChild(aside);
 }
 const AL_BASE_LESSON=lesson;
